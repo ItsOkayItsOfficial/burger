@@ -58,13 +58,14 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
      * **id**: an auto incrementing int that serves as the primary key.
      * **burger_name**: a string.
      * **devoured**: a boolean.
+     * **date**: a TIMESTAMP.: a boolean.
      * **date**: a TIMESTAMP.
 
 3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
 
 4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
 
-5. Now you're going to run these SQL files. 
+5. Now you're going to run these SQL files.
 
    * Make sure you're in the `db` folder of your app.
 
@@ -92,9 +93,9 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
 
    * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
 
-     * `selectAll()` 
-     * `insertOne()` 
-     * `updateOne()` 
+     * `selectAll()`
+     * `insertOne()`
+     * `updateOne()`
 
    * Export the ORM object in `module.exports`.
 
@@ -189,9 +190,9 @@ Attempt to complete homework assignment as described in instructions. If unable 
 
 ### Hosting on Heroku
 
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database. 
+Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
 
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details. 
+Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
 
 - - -
 

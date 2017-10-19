@@ -1,0 +1,26 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Eat the Burger! Heroku app using MySQL, Express, and Handlebars",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsOkayItsOfficial/burger.git"
+  },
+  "author": "Alex P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsOkayItsOfficial/burger/issues"
+  },
+  "homepage": "https://github.com/ItsOkayItsOfficial/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0"
+  }
+}
