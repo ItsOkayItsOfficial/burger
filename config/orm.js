@@ -9,15 +9,19 @@
 
 // Variable - Dependency
 let connection = require("./connection.js");
+let query = connection.query;
+
 
 // ORM - Object
 let orm = {
 
   // Function - Get all from name col in either table
   selectAll: function (tableName, callback) {
-    let queryString = "SELECT name, burger_desc, burger_cost FROM ?? ORDER BY name";
-    console.log(queryString);
-    connection.query(queryString, [tableName], function (error, result) {
+    var queryString = "SELECT name, burger_desc, burger_cost FROM ? ORDER BY name";
+    var queryInput = [tableName];
+
+    query(queryString, queryInput, function (error, result) {
+
       console.log(result);
       callback(result);
     });
@@ -25,9 +29,11 @@ let orm = {
 
   // Function - Insert new burger into burgers table
   insertBurger: function (burger_name, desc, cost, callback) {
-    let queryString = "INSERT INTO burgers (name, burger_desc, burger_cost) VALUES (??, ??, ??)";
-    console.log(queryString);
-    connection.query(queryString, [burger_name, desc, cost], function (error, result) {
+    var queryString = "INSERT INTO burgers (name, burger_desc, burger_cost) VALUES (??, ??, ??)";
+    var queryInput = [burger_name, desc, cost];
+
+    query(queryString, queryInput, function (error, result) {
+
       console.log(result);
       callback(result);
     });
@@ -35,9 +41,11 @@ let orm = {
 
   // Function - Insert new ingredient into ingredients table
   insertIng: function (ing_name, callback) {
-    let queryString = "INSERT INTO ingredients (name) VALUES (??)";
-    console.log(queryString);
-    connection.query(queryString, [ing_name], function (error, result) {
+    var queryString = "INSERT INTO ingredients (name) VALUES (??)";
+    var queryInput = [ing_name];
+
+    connection.query(queryString, queryInput, function (error, result) {
+
       console.log(result);
       callback(result);
     });
@@ -45,9 +53,11 @@ let orm = {
 
   // Function - Update burger in burgers table
   updateOne: function (colName, cellName, colVal, cellVal, callback) {
-    let queryString = "UPDATE burgers SET ?? = ? WHERE ?? = ?";
-    console.log(queryString);
-    connection.query(queryString, [colName, cellName, colVal, cellVal], function (error, result) {
+    var queryString = "UPDATE burgers SET ?? = ? WHERE ?? = ?";
+    var queryInput = [colName, cellName, colVal, cellVal];
+
+    query(queryString, queryInput, function (error, result) {
+
       console.log(result);
       callback(result);
     });

@@ -6,3 +6,13 @@
 * GitHub: github.com/itsokayitsofficial/burger
 * Heroku:
 */
+
+:root {
+    --height-sm: 20px;
+    --height-bg: 40px;
+}
+
+div {
+    padding: var(--height-bg);
+}
+

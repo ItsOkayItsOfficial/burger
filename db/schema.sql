@@ -8,6 +8,7 @@ CREATE TABLE ingredients
 (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255) NOT NULL,
+	quantity INT default 0,
 	PRIMARY KEY (id)
 );
 

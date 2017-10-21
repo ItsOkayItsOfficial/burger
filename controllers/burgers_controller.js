@@ -12,10 +12,12 @@ let router = express.Router();
 let express = require('express');
 let burger = require('../models/burger.js');
 
+
 // GET - / redirects to index.hbs /burgers
 router.get('/', function (request, response) {
     response.redirect('/burgers');
 });
+
 
 // GET - /burgers populates index.hbs with burger_db.burgers.(SELECT)
 router.get('/burgers', function (request, response) {
@@ -26,6 +28,7 @@ router.get('/burgers', function (request, response) {
         response.render('index', hbsObject);
     });
 });
+
 
 // POST - /burgers/add return index.hbs
 router.post('/burgers/add', function (request, response) {
@@ -40,6 +43,7 @@ router.post('/burgers/add', function (request, response) {
         });
     };
 });
+
 
 // PUT - /burgers/devour/:id return index.hbs
 router.put('/burgers/devour/:id', function (request, response) {
