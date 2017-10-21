@@ -7,22 +7,26 @@
 * Heroku:
 */
 
-//
-var mysql = require("mysql");
+// Variable - Dependencies
+let mysql = require("mysql");
+let key = require("./keys.js");
 
+// Variable - Connection params to MySQL db
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "scrub",
-  database: "parties_db"
+  password: key.password,
+  database: "burgers_db"
 });
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
+// Connect - Feedback on db connection
+connection.connect(function(error) {
+  if (error) {
+    console.error("Error connecting: " + error.stack);
     return;
   }
-  console.log("connected as id " + connection.threadId);
+  console.log("Connected as ID " + connection.threadId);
 });
 
+// Export - connection
 module.exports = connection;

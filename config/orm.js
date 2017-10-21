@@ -1,39 +1,58 @@
 /*
-* Author: Alex P
-* Project Name: Eat the Burger
-* Version: 1
-* Date:  10.19.17
-* GitHub: github.com/itsokayitsofficial/burger
-* Heroku:
-*/
+ * Author: Alex P
+ * Project Name: Eat the Burger
+ * Version: 1
+ * Date:  10.19.17
+ * GitHub: github.com/itsokayitsofficial/burger
+ * Heroku:
+ */
 
 // Variable - Dependency
-var connection = require("./connection.js");
+let connection = require("./connection.js");
 
 // ORM - Object
-var orm = {
-//   selectParties: function(table, orderCol) {
-//     var queryString = "SELECT * FROM ?? ORDER BY ?? DESC";
-//     console.log(queryString);
-//     connection.query(queryString, [table, orderCol], function(err, result) {
-//       console.log(result);
-//     });
-//   },
+let orm = {
 
-  selectBurger: function(table, colToSearch, valOfCol) {
-    var queryString = "SELECT * FROM ?? WHERE party_name = ?";
-    connection.query(queryString, [table, colToSearch, valOfCol], function(err, result) {
+  // Function - Get all from name col in either table
+  selectAll: function (tableName, callback) {
+    let queryString = "SELECT name, burger_desc, burger_cost FROM ?? ORDER BY name";
+    console.log(queryString);
+    connection.query(queryString, [tableName], function (error, result) {
       console.log(result);
+      callback(result);
     });
   },
 
-//   findClient: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-//     var queryString = "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+  // Function - Insert new burger into burgers table
+  insertBurger: function (burger_name, desc, cost, callback) {
+    let queryString = "INSERT INTO burgers (name, burger_desc, burger_cost) VALUES (??, ??, ??)";
+    console.log(queryString);
+    connection.query(queryString, [burger_name, desc, cost], function (error, result) {
+      console.log(result);
+      callback(result);
+    });
+  },
 
-//     connection.query(queryString, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol], function(err, result) {
-//       console.log(result);
-//     });
+  // Function - Insert new ingredient into ingredients table
+  insertIng: function (ing_name, callback) {
+    let queryString = "INSERT INTO ingredients (name) VALUES (??)";
+    console.log(queryString);
+    connection.query(queryString, [ing_name], function (error, result) {
+      console.log(result);
+      callback(result);
+    });
+  },
+
+  // Function - Update burger in burgers table
+  updateOne: function (colName, cellName, colVal, cellVal, callback) {
+    let queryString = "UPDATE burgers SET ?? = ? WHERE ?? = ?";
+    console.log(queryString);
+    connection.query(queryString, [colName, cellName, colVal, cellVal], function (error, result) {
+      console.log(result);
+      callback(result);
+    });
   }
+
 };
 
 // Export - ORM

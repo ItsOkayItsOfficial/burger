@@ -1,0 +1,20 @@
+
+
+{{!-- Burger and Ingredient Add Form --}}
+<form id="add" action="/burgers/add" method="POST">
+    <h2>Type in the name, description, and cost of the burger you'd like to add</h2>
+    <div class="form-group">
+        <input type="text" class="form-control" name="burger_name" id="" placeholder="Burger name">
+        <input type="text" class="form-control" name="desc" id="" placeholder="Describe your creation">
+        <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" name="cost" placeholder="Amount">
+            <span class="input-group-addon">.00</span>
+        </div>
+    </div>
+
+    <div class="input-group">
+                <input type="text" class="form-control" name="ing_name" placeholder="Ingredient name">
+    </div>
+    <button class="btn btn-warning" type="submit">Submit</button>
+</form>
